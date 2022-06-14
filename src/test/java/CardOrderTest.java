@@ -1,4 +1,3 @@
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -6,11 +5,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -31,6 +27,7 @@ public class CardOrderTest {
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
         driver = new ChromeDriver();
+        driver.get("http://localhost:9999");
     }
 
     @AfterEach
@@ -42,7 +39,6 @@ public class CardOrderTest {
 
     @Test
     public void shouldSendForm() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[type='text']")).sendKeys("Иванов Иван");
         driver.findElement(By.cssSelector("[type='tel']")).sendKeys("+79777777777");
         driver.findElement(By.cssSelector(".checkbox__box")).click();
@@ -55,7 +51,6 @@ public class CardOrderTest {
 
     @Test
     public void shouldSendEmptyForm() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("Button")).click();
         String actualText = driver.findElement(By.cssSelector(".input__sub")).getText().trim();
         String expected = "Поле обязательно для заполнения";
@@ -66,7 +61,6 @@ public class CardOrderTest {
 
     @Test
     public void shouldSendFormWithIncorrectName() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[type='text']")).sendKeys("Иванов Ivan");
         driver.findElement(By.cssSelector("[type='tel']")).sendKeys("+79777777777");
         driver.findElement(By.cssSelector(".checkbox__box")).click();
@@ -78,7 +72,6 @@ public class CardOrderTest {
 
     @Test
     public void shouldSendFormWithIncorrectNumber() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[type='text']")).sendKeys("Иванов Иван");
         driver.findElement(By.cssSelector("[type='tel']")).sendKeys("+797777777770");
         driver.findElement(By.cssSelector(".checkbox__box")).click();
@@ -90,7 +83,6 @@ public class CardOrderTest {
 
     @Test
     public void shouldSendFormWithoutCheckbox() {
-        driver.get("http://localhost:9999");
         driver.findElement(By.cssSelector("[type='text']")).sendKeys("Иванов Иван");
         driver.findElement(By.cssSelector("[type='tel']")).sendKeys("+79777777777");
         driver.findElement(By.cssSelector("Button")).click();
