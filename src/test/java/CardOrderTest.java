@@ -87,6 +87,7 @@ public class CardOrderTest {
         String expected = "Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.";
         assertEquals(expected, actualText);
     }
+
     @Test
     public void shouldSendFormWithoutCheckbox() {
         driver.get("http://localhost:9999");
