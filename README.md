@@ -1,1 +1,1 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/wdq3edk2cie9hmj8/branch/main?svg=true)](https://ci.appveyor.com/project/Skylagga/homeworkauto3/branch/main)
+[![Build status](https://ci.appveyor.com/api/projects/status/xpgaq2vp2oh63wrr?svg=true)](https://ci.appveyor.com/project/OSA85/for-check)
